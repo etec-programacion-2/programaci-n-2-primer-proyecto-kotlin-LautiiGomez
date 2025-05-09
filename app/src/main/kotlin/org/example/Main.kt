@@ -156,3 +156,63 @@ fun potencia(base: Int, exponente: Int): Int {
     return if (exponente == 0) 1 else base * potencia(base, exponente - 1)
 }
 
+// Sexta consigna: Variables Locales y Alcance
+// Para usar variables locales, usamos la palabra reservada val, seguida del nombre de la variable y el tipo de datos. Luego, escribimos el cuerpo de la función entre llaves.
+
+fun demostrarAlcanceVariables() {
+    val variableGlobal = "Soy global en esta función"
+    println("En función principal: $variableGlobal")
+    
+    if (true) {
+        val variableIf = "Soy local del if"
+        println("Dentro del if: $variableIf")
+        println("Puedo acceder a: $variableGlobal")
+    }
+
+    for (i in 1..3) {
+        val variableFor = "Soy local del for - iteración $i"
+        println("Dentro del for: $variableFor")
+        println("Puedo acceder a: $variableGlobal")
+    }
+
+    run {
+        val variableBloque = "Soy local de este bloque"
+        println("Dentro del bloque run: $variableBloque")
+        println("Puedo acceder a: $variableGlobal")
+    }
+    
+    println("Fin de la demostración de alcance")
+}
+
+fun calcularPromedio(numeros: List<Int>): Double {
+    var suma = 0 // Variable local mutable
+    var contador = 0 // Variable local mutable
+    
+    for (numero in numeros) {
+        suma += numero
+        contador++
+    }
+    
+    return if (contador > 0) suma.toDouble() / contador else 0.0
+}
+
+fun encontrarMinMax(numeros: List<Int>): Pair<Int, Int> {
+    if (numeros.isEmpty()) {
+        throw IllegalArgumentException("La lista no puede estar vacía")
+    }
+    
+    var minimo = numeros[0]
+    var maximo = numeros[0]
+    
+    for (numero in numeros) {
+        if (numero < minimo) {
+            minimo = numero
+        }
+        
+        if (numero > maximo) {
+            maximo = numero
+        }
+    }
+    
+    return Pair(minimo, maximo)
+}
