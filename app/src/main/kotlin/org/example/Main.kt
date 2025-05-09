@@ -144,3 +144,15 @@ fun imprimir(){
     paresConDoWhile()
     println()
 }
+
+// Quinta consigna: Funciones
+// Para crear funciones, usamos la palabra reservada fun, seguida del nombre de la función y los parámetros entre paréntesis. Luego, escribimos el cuerpo de la función entre llaves.
+
+fun factorial(n: Int): Int {
+    return if (n <= 1) 1 else n * factorial(n - 1)
+}
+
+fun potencia(base: Int, exponente: Int): Int {
+    return if (exponente == 0) 1 else base * potencia(base, exponente - 1)
+}
+
